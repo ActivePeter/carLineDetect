@@ -280,13 +280,13 @@ mask.copyTo(src,binary2);//剔除遮罩
 
 ## 测试视频效果
 
-![image-20200621032517230](C:\Users\Administrator.VZMRW9ETL45BX39\AppData\Roaming\Typora\typora-user-images\image-20200621032517230.png)
+![image-20200621032517230](http://tuchuang.hanbaoaaa.xyz/image-20200621032517230.png)
 
 ## 测试视频出现的问题
 
 未实现区分较为离散的车道线算法。
 
-![image-20200621032709734](C:\Users\Administrator.VZMRW9ETL45BX39\AppData\Roaming\Typora\typora-user-images\image-20200621032709734.png)
+![image-20200621032709734](http://tuchuang.hanbaoaaa.xyz/image-20200621032709734.png)
 
 ## 额外
 
@@ -454,16 +454,16 @@ int main(int argc, char *argv[])
 
 ### 3.关于原测试视频左右车道线区分实现的讨论
 
-![image-20200621031959560](C:\Users\Administrator.VZMRW9ETL45BX39\AppData\Roaming\Typora\typora-user-images\image-20200621031959560.png)
+![image-20200621031959560](http://tuchuang.hanbaoaaa.xyz/image-20200621031959560.png)
 
-![image-20200621032028427](C:\Users\Administrator.VZMRW9ETL45BX39\AppData\Roaming\Typora\typora-user-images\image-20200621032028427.png)
+![image-20200621032028427](http://tuchuang.hanbaoaaa.xyz/image-20200621032028427.png)
 
-![image-20200621032046056](C:\Users\Administrator.VZMRW9ETL45BX39\AppData\Roaming\Typora\typora-user-images\image-20200621032046056.png)
+![image-20200621032046056](http://tuchuang.hanbaoaaa.xyz/image-20200621032046056.png)
 
-![image-20200621032129391](C:\Users\Administrator.VZMRW9ETL45BX39\AppData\Roaming\Typora\typora-user-images\image-20200621032129391.png)
+![image-20200621032129391](http://tuchuang.hanbaoaaa.xyz/image-20200621032129391.png)
 
-![](C:\Users\Administrator.VZMRW9ETL45BX39\AppData\Roaming\Typora\typora-user-images\image-20200621032146684.png
+![h](http://tuchuang.hanbaoaaa.xyz/image-20200621032146684.png)
 
 #### 原测试视频最后的区分效果
 
-![image-20200621032217124](C:\Users\Administrator.VZMRW9ETL45BX39\AppData\Roaming\Typora\typora-user-images\image-20200621032217124.png)
+![image-20200621032217124](http://tuchuang.hanbaoaaa.xyz/image-20200621032217124.png)
