@@ -8,42 +8,40 @@
 
 getPerspectiveTransform 通过该函数可以将图像变换到正交视图下，可以排除一部分路面外的干扰，并且易于分析曲率。
 
-![img](https://img-blog.csdn.net/20180422095718832?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nanVucDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![image-20200624004900222](http://tuchuang.hanbaoaaa.xyz/image-20200624004900222.png)
 
 u,v是原始图片左边，对应得到变换后的图片坐标x,y,其中。
 
-变换矩阵![img](https://img-blog.csdn.net/20180422095850237?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nanVucDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)可以分作四部分来理解，![img](https://img-blog.csdn.net/20180422095915794?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nanVucDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)表示线性变换，![img](https://img-blog.csdn.net/20180422095943888?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nanVucDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)表示平移，![img](https://img-blog.csdn.net/20180422100021279?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nanVucDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)产生透视，
+变换矩阵![image-20200624004922386](http://tuchuang.hanbaoaaa.xyz/image-20200624004922386.png)可以分作四部分来理解，![image-20200624004954376](http://tuchuang.hanbaoaaa.xyz/image-20200624004954376.png)表示线性变换，![image-20200624005013106](http://tuchuang.hanbaoaaa.xyz/image-20200624005013106.png)表示平移，![image-20200624005040610](http://tuchuang.hanbaoaaa.xyz/image-20200624005040610.png)产生透视，
 
 
 所以可以理解成仿射等是透视变换的特殊形式。经过透视变换之后的图片通常不是平行四边形（除非映射视平面和原来平面平行的情况）。
 
-重写之前的变换公式可以得到：![img](https://img-blog.csdn.net/20180422100135637?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nanVucDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+重写之前的变换公式可以得到：![image-20200624005057828](http://tuchuang.hanbaoaaa.xyz/image-20200624005057828.png)
 
 
 
-所以，已知变换对应的几个点就可以求取变换公式。反之，特定的变换公式也能新的变换后的图片。简单的看一个正方形到四边形的变换：
+所以，已知变换对应的几个点就可以求取变换公式。反之，特定的变换公式也能新的变换后的图片。简单的看一个正方形到四边形的变换：![image-20200624005114806](http://tuchuang.hanbaoaaa.xyz/image-20200624005114806.png)
 
-![img](https://img-blog.csdn.net/20180422100211204?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nanVucDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
-
-根据变换公式得到：![img](https://img-blog.csdn.net/20180422100234168?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nanVucDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+根据变换公式得到：![image-20200624005133746](http://tuchuang.hanbaoaaa.xyz/image-20200624005133746.png)
 
 
 
-定义几个辅助变量：![img](https://img-blog.csdn.net/20180422100254365?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nanVucDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+定义几个辅助变量：![image-20200624005151699](http://tuchuang.hanbaoaaa.xyz/image-20200624005151699.png)
 
 
 
-![img](https://img-blog.csdn.net/20180422100304546?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nanVucDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)都为0时变换平面与原来是平行的，可以得到：![img](https://img-blog.csdn.net/20180422100320660?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nanVucDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![img](https://img-blog.csdn.net/20180422100304546?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nanVucDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)都为0时变换平面与原来是平行的，可以得到：![image-20200624005203265](http://tuchuang.hanbaoaaa.xyz/image-20200624005203265.png)
 
 
 
-![img](https://img-blog.csdn.net/20180422100336658?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nanVucDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)不为0时，得到![img](https://img-blog.csdn.net/20180422100401269?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nanVucDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![img](https://img-blog.csdn.net/20180422100336658?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nanVucDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)不为0时，得到![image-20200624005218201](http://tuchuang.hanbaoaaa.xyz/image-20200624005218201.png)
 
 
 
 求解出的变换矩阵就可以将一个正方形变换到四边形。反之，四边形变换到正方形也是一样的。于是，我们通过两次变换：四边形变换到正方形+正方形变换到四边形就可以将任意一个四边形变换到另一个四边形。
 
-![img](https://img-blog.csdn.net/20180422100436778?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nanVucDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![image-20200624005227378](http://tuchuang.hanbaoaaa.xyz/image-20200624005227378.png)
 
 #### 实现
 
@@ -173,13 +171,15 @@ std::vector<std::vector<Point> > vec_p;
 
 **基本原理：幂函数可逼近任意函数。**
 
-**![img](https://img-blog.csdn.net/20180404220007596)**
+
+
+![image-20200624005336480](http://tuchuang.hanbaoaaa.xyz/image-20200624005336480.png)
 
 上式中，N表示多项式阶数，实际应用中一般取3或5；
 
 假设N=5，则：
 
-**![img](https://img-blog.csdn.net/20180404215216217)**
+![image-20200624005346139](http://tuchuang.hanbaoaaa.xyz/image-20200624005346139.png)
 
 共有6个未知数，仅需6个点即可求解；
 
@@ -189,7 +189,7 @@ Y的维数为[R*1]，U的维数[R * 6]，K的维数[6 * 1]。
 
 R> 6时，超定方程求解：
 
-![img](https://img-blog.csdn.net/20180404215619302)
+![image-20200624005356840](http://tuchuang.hanbaoaaa.xyz/image-20200624005356840.png)
 
 #### 实现
 
@@ -224,7 +224,7 @@ Mat polyfit(vector<Point>& in_point, int n)//
 
 #### 原理
 
-　　![在这里插入图片描述](https://img-blog.csdnimg.cn/20190116203632565.png)
+![image-20200624005416177](http://tuchuang.hanbaoaaa.xyz/image-20200624005416177.png)
 　　求解一阶导数的公式：y’(i) = (y(i+1)-y(i))/h;　　（ｙ(i)处y’(i) = △y(i)/△x(i)） 求解二阶导数的公式：y’’(i) = (y(i+1)+y(i-1)-2*y(i))/h^2; （两处h为△x(i)）
 
 #### 实现
